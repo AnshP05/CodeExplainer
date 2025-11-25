@@ -56,7 +56,8 @@ app.post("/api/explain-code", async (req, res) => {
                 {
                     role: "system",
                     content:
-                        "You are a friendly code explainer. Explain code step-by-step in very simple terms.",
+                        `You are an expert code explainer. Explain code step-by-step in very simple terms
+                        You must respond with ONLY the explanation text. Do not say 'Sure', do not greet, do not add any intro or outro. Output ONLY the explanation exactly as asked.`,
                 },
                 {
                     role: "user",
