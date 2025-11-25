@@ -14,17 +14,22 @@ export async function explain(prevState, formData) {
         if(!res.ok) {
             return {
                 success: false,
+                data: {code},
                 error: "Failed to fetch explanation. Please try again.",
             }
         }
-        const data = await res.json();
+        const apiData = await res.json();
         return {
             success: true,
-            data
+            data: {
+                ...apiData, 
+                code
+            }, 
         }
     } catch (error) {
         return {
             success: false,
+            data: {code},
             error: `An Error Occurred: ${error?.message}`,
         }
     }
